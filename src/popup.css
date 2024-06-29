@@ -1,0 +1,23 @@
+body, html {
+    width: 300px;
+    height: 300px; /* Adjust height as needed */
+    margin: 0;
+    padding: 10px;
+}
+
+p {
+    white-space: nowrap;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+button {
+    margin: 0px 0px 0px 10px;
+}
+
+#identifierContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}

@@ -7,6 +7,7 @@ dist/
 # Ignore TypeScript compiler output
 *.js
 *.js.map
+!webpack.config.js
 
 # Ignore any editor-specific files
 .vscode/

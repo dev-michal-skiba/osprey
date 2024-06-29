@@ -3,11 +3,9 @@
     "name": "Osprey",
     "version": "1.0",
     "description": "Save and rate real estate listings with ease.",
-    "background": {
-      "service_worker": "dist/bundle.js"
-    },
     "action": {
-      "default_popup": "src/popup.html"
+      "default_popup": "src/popup.html",
+      "default_title": "Osprey"
     },
     "permissions": ["storage"],
     "host_permissions": ["<all_urls>"]

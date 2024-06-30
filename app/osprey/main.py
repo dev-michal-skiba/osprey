@@ -68,7 +68,7 @@ def get_listings():
     return jsonify(
         {
             "user_listing": user_listing.__data__ if user_listing else None,
-            "other_listings": [record.__data__ for record in data if user_listing and record.id != user_listing.id]
+            "other_listings": [record.__data__ for record in data if not user_listing or (user_listing and record.id != user_listing.id)]
         }
     )
 

@@ -46,10 +46,31 @@ class CreateListingForm(BaseModel):
 def post_listing():
     try:
         data = CreateListingForm.parse_obj(request.get_json())
-        listing = Listing.create(added_by=config["username"], **data.dict())
-        return jsonify(listing.__data__), 201
+        defaults = data.dict()
+        identifier = defaults.pop('identifier')
+        listing, created = Listing.get_or_create(added_by=config["username"], identifier=identifier, defaults=defaults)
+        if not created:
+            for field, value in data.dict().items():
+                setattr(listing, field, value)
+            listing.save()
+        return jsonify(listing.__data__), 201 if created else 200
     except ValidationError as e:
         return jsonify({'error': str(e)}), 400
+
+
+@app.route('/listing', methods=['GET'])
+def get_listings():
+    identifier = request.args.get('identifier')
+    if identifier is None:
+        return jsonify({'error': 'Missing listing identifier'}), 400
+    data = Listing.select().where(Listing.identifier == identifier)
+    user_listing = next(filter(lambda record: record.added_by == config["username"], data), None)
+    return jsonify(
+        {
+            "user_listing": user_listing.__data__ if user_listing else None,
+            "other_listings": [record.__data__ for record in data if user_listing and record.id != user_listing.id]
+        }
+    )
 
 
 def fetch_records():

@@ -26,3 +26,28 @@ body, html {
     height: 2em;
     width: auto;
 }
+
+.flag {
+    height: 1em;
+    width: auto;
+    margin-left: 5px;
+}
+
+.flex-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.inline-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.submit {
+    margin-left: 5px;
+}
+
+.other-rating {
+    margin-right: 5px;
+}

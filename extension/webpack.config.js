@@ -2,7 +2,10 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/popup.ts',
+  entry: {
+    'popup': './src/popup.ts',
+    'content/otodom': './src/content/otodom.ts',
+  },
   devtool: 'inline-source-map',
   module: {
     rules: [
@@ -17,7 +20,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    filename: 'popup.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
 };

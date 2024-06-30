@@ -5,9 +5,20 @@
     "description": "Save and rate real estate listings with ease.",
     "action": {
       "default_popup": "src/popup.html",
-      "default_title": "Osprey"
+      "default_title": "Osprey",
+        "default_icon": {
+            "16": "src/static/logo.png",
+            "48": "src/static/logo.png",
+            "128": "src/static/logo.png"
+        }
     },
     "permissions": ["storage"],
-    "host_permissions": ["<all_urls>"]
-  }
+    "host_permissions": ["<all_urls>"],
+    "content_scripts": [
+        {
+            "matches": ["https://www.otodom.pl/*"],
+            "js": ["dist/content/otodom.js"]
+        }
+    ]
+}
   

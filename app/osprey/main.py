@@ -18,6 +18,7 @@ class Listing(Model):
     added_by = CharField()
     portal = CharField()
     identifier = CharField()
+    title = CharField()
     url = CharField()
     rating = IntegerField()
     red_flag = BooleanField()
@@ -34,6 +35,7 @@ db.create_tables([Listing])
 class CreateListingForm(BaseModel):
     portal: str
     identifier: str
+    title: str
     url: str
     rating: int
     red_flag: bool

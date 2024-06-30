@@ -1,31 +1,28 @@
 body, html {
-    width: 300px;
-    height: 300px; /* Adjust height as needed */
+    width: 500px;
+    height: auto;
     margin: 0;
-    padding: 10px;
-}
-
-p {
-    white-space: nowrap;
-    width: auto;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.idButton {
-    margin: 0px 0px 0px 5px;
-}
-
-.workspaceButton {
-    margin: 5px 0px 0px 00px;
-}
-
-#identifierContainer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    padding: 5px;
+    font-size: 1em;
 }
 
 .error {
     color: red;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 0.5em;
+    height: 3em;
+    width: auto;
+}
+
+.refresh {
+    margin-left: 0.5em;
+    height: 2em;
+    width: auto;
 }
